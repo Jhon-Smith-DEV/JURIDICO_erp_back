@@ -33,7 +33,7 @@ public class CasoResolver {
     }
 
     @QueryMapping
-    public Caso casoById(@Argument String id) {
+    public Caso casoById(@Argument Long id) {
         Caso caso = casoService.getById(id);
         return caso;
     }

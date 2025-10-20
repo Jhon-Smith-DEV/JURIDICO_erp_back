@@ -26,7 +26,7 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public Optional<Cliente> getClienteById(String id) {
+    public Optional<Cliente> getClienteById(Long id) {
         return clienteRepository.findById(id);
     }
 

@@ -26,7 +26,7 @@ public class CasoService {
         return casoRepository.findAll();
     }
 
-    public Caso getById(String id) {
+    public Caso getById(Long id) {
         Caso caso = casoRepository.findById(id).orElse(null);
         if (caso == null) {
             return null;

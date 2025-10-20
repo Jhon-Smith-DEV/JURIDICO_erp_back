@@ -5,7 +5,7 @@
 package com.grupo8.ERP.repository;
 
 import com.grupo8.ERP.model.Caso;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author fidel
  */
 @Repository
-public interface CasoRepository extends MongoRepository<Caso, String> {
+public interface CasoRepository extends JpaRepository<Caso, Long> {
     
 }

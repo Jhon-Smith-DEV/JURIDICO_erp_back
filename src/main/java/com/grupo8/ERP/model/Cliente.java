@@ -4,13 +4,9 @@
  */
 package com.grupo8.ERP.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
@@ -18,18 +14,33 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Setter
 @Getter
-@Document(collection = "clientes")
+@Entity
+@Table(name = "clientes")
 public class Cliente {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(name = "nombre", nullable = false)
     private String nombre;
+    
+    @Column(name = "apellido", nullable = false)
     private String apellido;
+    
+    @Column(name = "ci", unique = true, nullable = false)
     private String ci;
+    
+    @Column(name = "telefono")
     private String telefono;
+    
+    @Column(name = "correo")
     private String correo;
+    
+    @Column(name = "fecha_nac")
     private String fechaNac;
+    
+    @Column(name = "cuenta_eth")
     private String cuentaETH;
    
 }

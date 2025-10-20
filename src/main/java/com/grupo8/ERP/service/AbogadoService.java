@@ -26,7 +26,7 @@ public class AbogadoService {
         return abogadoRepository.findAll();
     }
 
-    public Optional<Abogado> getAbogadoById(String id) {
+    public Optional<Abogado> getAbogadoById(Long id) {
         return abogadoRepository.findById(id);
     }
 

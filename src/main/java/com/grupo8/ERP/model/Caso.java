@@ -4,10 +4,9 @@
  */
 package com.grupo8.ERP.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
@@ -15,13 +14,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Setter
 @Getter
-@Document(collection = "casos")
+@Entity
+@Table(name = "casos")
 public class Caso {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     
+    @Column(name = "demandante")
     private String demandante;
+    
+    @Column(name = "materia")
     private String meteria;
+    
+    @Column(name = "tipo_proceso")
     private String tipoProceso;
+    
+    @Column(name = "lugar_asignado")
     private String lugarAsignado;
 }

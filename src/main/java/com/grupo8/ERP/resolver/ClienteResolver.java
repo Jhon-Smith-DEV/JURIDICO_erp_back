@@ -32,7 +32,7 @@ public class ClienteResolver {
     }
 
     @QueryMapping
-    public Cliente clientePorId(@Argument String id) {
+    public Cliente clientePorId(@Argument Long id) {
         return clienteService.getClienteById(id).orElse(null);
     }
 

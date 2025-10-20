@@ -45,7 +45,7 @@ public class ContratoService {
         return contratos;
     }
 
-    public Contrato getContratoById(String id) {
+    public Contrato getContratoById(Long id) {
         Contrato contrato = contratoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Contrato no encontrado"));
         return contrato;

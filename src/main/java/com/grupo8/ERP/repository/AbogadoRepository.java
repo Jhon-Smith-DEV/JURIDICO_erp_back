@@ -6,12 +6,12 @@ package com.grupo8.ERP.repository;
 
 import com.grupo8.ERP.model.Abogado;
 import java.util.Optional;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author fidel
  */
-public interface AbogadoRepository extends MongoRepository<Abogado, String> {
-    Optional<Abogado> findById(String Id);
+public interface AbogadoRepository extends JpaRepository<Abogado, Long> {
+    Optional<Abogado> findById(Long id);
 }

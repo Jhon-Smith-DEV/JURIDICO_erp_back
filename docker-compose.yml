@@ -3,16 +3,17 @@
 version: '3.8'
 
 services:
-  mongodb:
-    image: mongo:6.0
-    container_name: erp-mongodb
+  postgres:
+    image: postgres:15
+    container_name: erp-postgres
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: adminpass
+      POSTGRES_DB: sw2_erp
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminpass
     ports:
-      - "27017:27017"
+      - "5432:5432"
     volumes:
-      - mongodb_data:/data/db
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - erp-network
 
@@ -22,14 +23,16 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://admin:adminpass@mongodb:27017/sw2-Erp?authSource=admin
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sw2_erp
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: adminpass
     depends_on:
-      - mongodb
+      - postgres
     networks:
       - erp-network
 
 volumes:
-  mongodb_data:
+  postgres_data:
 
 networks:
   erp-network:

@@ -1,5 +1,5 @@
 type Contrato {
-    id: String
+    id: ID
     detalles: String
     hashAddress: String
     precioETH: String
@@ -12,6 +12,7 @@ type Contrato {
 }
 
 type Abogado {
+    id: ID
     nombre: String!
     apellido: String!
     ci: String!
@@ -22,7 +23,7 @@ type Abogado {
 }
 
 type Cliente {
-    id: String!
+    id: ID!
     nombre: String!
     apellido: String!
     ci: String!
@@ -33,7 +34,7 @@ type Cliente {
 }
 
 type Caso {
-    id: String!
+    id: ID!
     demandante: String!
     meteria: String!
     tipoProceso: String!
@@ -42,10 +43,10 @@ type Caso {
 
 type Query {
     allClientes: [Cliente!]!
-    clientePorId(id: String!): Cliente
+    clientePorId(id: ID!): Cliente
 
     allAbogados: [Abogado!]!
-    abogadoPorId(id: String!): Abogado
+    abogadoPorId(id: ID!): Abogado
 
     allContratos: [Contrato!]!
     contratoById(id: ID!): Contrato
@@ -82,9 +83,9 @@ type Mutation {
         precioETH: String
         precioBS: Float
         fecha: String
-        clienteId: String!
-        abogadoId: String!
-        casoId: String!
+        clienteId: ID!
+        abogadoId: ID!
+        casoId: ID!
     ): Contrato!
 
     crearCaso(

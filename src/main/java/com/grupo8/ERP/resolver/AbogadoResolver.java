@@ -33,7 +33,7 @@ public class AbogadoResolver {
     }
 
     @QueryMapping
-    public Abogado abogadoPorId(@Argument String id) {
+    public Abogado abogadoPorId(@Argument Long id) {
         return abogadoService.getAbogadoById(id).orElse(null);
     }
 

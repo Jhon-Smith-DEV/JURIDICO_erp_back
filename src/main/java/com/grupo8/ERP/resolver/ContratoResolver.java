@@ -36,7 +36,7 @@ public class ContratoResolver {
     }
    
     @QueryMapping
-    public Contrato contratoById(@Argument String id) {
+    public Contrato contratoById(@Argument Long id) {
         return contratoService.getContratoById(id);
     }
 
@@ -47,9 +47,9 @@ public class ContratoResolver {
             @Argument String precioETH ,
             @Argument Double precioBS ,
             @Argument String fecha ,
-            @Argument String clienteId ,
-            @Argument String abogadoId ,
-            @Argument String casoId) {
+            @Argument Long clienteId ,
+            @Argument Long abogadoId ,
+            @Argument Long casoId) {
         
         ContratoDTO contratoDTO = new ContratoDTO();
             

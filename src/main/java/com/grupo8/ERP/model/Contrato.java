@@ -4,11 +4,9 @@
  */
 package com.grupo8.ERP.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
@@ -16,24 +14,39 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Getter
 @Setter
-@Document(collection = "contratos")
+@Entity
+@Table(name = "contratos")
 public class Contrato {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(name = "detalles")
     private String detalles;
+    
+    @Column(name = "hash_address")
     private String hashAddress;
+    
+    @Column(name = "precio_eth")
     private String precioETH;
+    
+    @Column(name = "precio_bs")
     private Double precioBS;
+    
+    @Column(name = "fecha")
     private String fecha;
     
-    @DBRef
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @DBRef
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "abogado_id")
     private Abogado abogado;
     
-    @DBRef
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "caso_id")
     private Caso caso;
     
 }

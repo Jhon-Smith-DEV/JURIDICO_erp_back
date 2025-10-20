@@ -18,15 +18,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContratoDTO {
-    private String id;
+    private Long id;
     private String detalles;
     private String hashAddress;
     private String precioETH;
     private Double precioBS;
     private String fecha;
 
-    private String cliente;
-    private String abogado;
-    private String caso;
+    private Long cliente;
+    private Long abogado;
+    private Long caso;
     
 }
