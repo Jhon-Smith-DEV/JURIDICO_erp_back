@@ -30,6 +30,16 @@ services:
       - postgres
     networks:
       - erp-network
+  
+  web:
+    build: ./erp_front
+    container_name: erp-front
+    ports:
+      - "3000:3000"
+    depends_on:
+      - springboot-app
+    networks:
+      - erp-network
 
 volumes:
   postgres_data:
