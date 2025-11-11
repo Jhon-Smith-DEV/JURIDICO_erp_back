@@ -10,3 +10,6 @@ POSTGRES_DB: sw2_erp
 POSTGRES_USER: admin
 POSTGRES_PASSWORD: adminpass
 PORTS: 5432
+
+3. Acceda a 
+127.0.0.1:3000  -> para ver el front del ERP
